@@ -19,6 +19,11 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { SingupComponent } from './component/singup/singup.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ClassficationDialogComponent } from './component/classification-dialog/classfication-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -27,21 +32,25 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     HomeComponent,
     SinginComponent,
     SingupComponent,
-    DashboardComponent
+    DashboardComponent,
+    ClassficationDialogComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
+    MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatCardModule,
     MatFormFieldModule,
     FormsModule, 
-    ReactiveFormsModule,MatTabsModule
+    ReactiveFormsModule,MatTabsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -52,6 +61,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule,MatTabsModule]
+    MatCardModule,
+    MatTabsModule,
+    MatGridListModule]
 })
 export class AppModule { }
