@@ -3,24 +3,24 @@ import { HttpClient, HttpHeaders  } from '@angular/common/http'
 @Injectable({
     providedIn: 'root'
 })
-export class SignInService{
+export class SignUpService{
 
     constructor(
         private http:HttpClient
     ){}
-    checkSignin(name :String , password:String){
+    signUp(email :String , password:String){
         const httpOptions = {
             headers: new HttpHeaders({
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Methods': 'GET,POST',
               'Content-Type':  'application/json',
-              'Authorization': 'Basic ' + btoa(name+':'+password),
               'Access-Control-Allow-Headers': 'Content-Type'
               
               
             })
           };
-        return this.http.get('http://127.0.0.1:5000/login', httpOptions); 
+          const data ={ "email":email ,"password":password};
+        return this.http.post('http://127.0.0.1:5000/user', data, httpOptions); 
     }
 
 }

@@ -8,11 +8,16 @@ import {SignInService} from '../../service/signin.service'
 export class SinginComponent implements OnInit {
 
   constructor(private api:SignInService) { }
-
+  email:string='';
+  password:string='';
   ngOnInit(): void {
     
-    this.api.checkSignin('amine@gmail.com','test').subscribe((data)=>{
-      console.log("data",data);
+    
+  }
+  login():void{
+    this.api.checkSignin(this.email,this.password).subscribe((data:any)=>{
+      sessionStorage.setItem('token',data.token);
+      sessionStorage.setItem('id',data.id);
     })
   }
 

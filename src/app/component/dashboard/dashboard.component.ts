@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DashboardService } from 'src/app/service/dashboard.service';
 import { ClassficationDialogComponent } from '../classification-dialog/classfication-dialog.component';
 @Component({
   selector: 'app-dashboard',
@@ -9,10 +10,17 @@ import { ClassficationDialogComponent } from '../classification-dialog/classfica
 export class DashboardComponent implements OnInit {
   files: object={};
   name: string="";
-  constructor(public dialog: MatDialog) { }
+  classes: any;
+
+  constructor(public dialog: MatDialog,private api: DashboardService) { }
 
   ngOnInit(): void {
+    this.api.getClasses().subscribe((data:any)=>{
+      this.classes = data;
+      
+    })
   }
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(ClassficationDialogComponent, {
       width: '350px',

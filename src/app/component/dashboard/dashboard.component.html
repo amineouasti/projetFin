@@ -11,8 +11,12 @@
         <mat-card class="my-card">
             <mat-card-title>Project</mat-card-title>
             <mat-card-content>
-
+                <div style="display: inline-block;padding-left: 30px;" *ngFor="let classe of classes" id="{{classe.id}}">
+                <img src="assets/folder-7-64.png"/>
+                <p style=" text-align: center;">{{ classe.name }} </p>
+                </div>
                     <div class="example-button-container">
+                        
                     <button mat-fab color="warn" aria-label="Create new project" (click)="openDialog()">
                       <mat-icon>add</mat-icon>
                     </button>

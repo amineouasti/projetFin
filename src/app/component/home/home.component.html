@@ -1,11 +1,11 @@
-<div class="singin-div">
+<div class="singin-div" *ngIf= "!checkToken()">
     <mat-tab-group >
-        <mat-tab label="Sing-in"> <app-singup></app-singup></mat-tab>
-        <mat-tab label="Sing-Up"> <app-singin></app-singin> </mat-tab>
         
+        <mat-tab label="Sign-In"> <app-singin></app-singin> </mat-tab>
+        <mat-tab label="Sign-Up"> <app-singup></app-singup></mat-tab>
     </mat-tab-group>
     
 </div>
-<div class="dashboard-div"*ngIf="false">
+<div class="dashboard-div"*ngIf="checkToken()">
 <app-dashboard></app-dashboard>
 </div>

@@ -23,6 +23,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ClassficationDialogComponent } from './component/classification-dialog/classfication-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import {
+  JwtHelperService,
+  JWT_OPTIONS
+} from '@auth0/angular-jwt';
 
 
 
@@ -52,7 +56,13 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,MatTabsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: JWT_OPTIONS,
+      useValue: JWT_OPTIONS
+   },
+   JwtHelperService
+  ],
   bootstrap: [AppComponent],
   exports: [
     MatButtonModule,
