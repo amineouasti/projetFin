@@ -18,6 +18,7 @@ export class SinginComponent implements OnInit {
     this.api.checkSignin(this.email,this.password).subscribe((data:any)=>{
       sessionStorage.setItem('token',data.token);
       sessionStorage.setItem('id',data.id);
+      window.location.reload();
     })
   }
 

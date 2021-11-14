@@ -1,17 +1,89 @@
 .my-card{
     display:block;
-    width: 100%;
+    width: 20%;
     height: 100%;
     background-color: #11ffee00;
     position: relative;
+    flex: 1;
+    border: 2px solid yellow;
 }
 .example-button-container {
     display: flex;
     justify-content: center;
     width: 120px;
     float: right;
+    margin-top: 20px;
     
  
     
     
   }
+  .example-card {
+    padding: 20px;
+    width: 200px;
+    height: 350px;
+    margin-top: 30px;
+    margin-left: 10px;
+    display: inline-block;padding-left: 30px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .sub_div {
+      padding-top: 10px;
+    position:relative;
+    height: 20%;
+    bottom: 0px;
+    border-top: 1.3mm ridge rgba(82, 73, 44, 0.6);
+   
+}
+.sup_div {
+  
+    padding-top: 10px;
+    position:relative;
+    height: 80%;
+    bottom: 0px;
+    overflow-y: scroll;
+}
+.div_row {
+    
+}
+.flex-child {
+    
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 
+.btnClass{
+    background-color: rgb(143, 194, 92);
+}
+.update{
+line-height: 20px;
+width: 18px;
+font-size: 10pt;
+font-family: tahoma;
+margin-top: 1px;
+margin-right: 2px;
+position:absolute;
+background-color: aquamarine;
+}
+.delete{
+    line-height: 20px;
+    width: 1%;
+    font-size: 10pt;
+    font-family: tahoma;
+    margin-top: 0;
+    margin-right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    
+    text-align: right;
+    }
+    .delete-icon{
+        color: gray;
+    }

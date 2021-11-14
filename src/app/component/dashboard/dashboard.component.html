@@ -1,28 +1,44 @@
-<mat-grid-list cols="1" rowHeight="150px">
-    <mat-grid-tile [rowspan]="3">
-        <mat-card class="my-card">
-            <mat-card-title>Dashboard</mat-card-title>
-            <mat-card-content style="justify-content: center;">
-                Select or Create classification
-            </mat-card-content>
-        </mat-card> 
-    </mat-grid-tile>
-    <mat-grid-tile [rowspan]="1.3" style="border-top: 1.3mm ridge rgba(82, 73, 44, 0.6);">
-        <mat-card class="my-card">
-            <mat-card-title>Project</mat-card-title>
-            <mat-card-content>
-                <div style="display: inline-block;padding-left: 30px;" *ngFor="let classe of classes" id="{{classe.id}}">
-                <img src="assets/folder-7-64.png"/>
-                <p style=" text-align: center;">{{ classe.name }} </p>
-                </div>
-                    <div class="example-button-container">
+<div class="sup_div">
+    <h2>Dashboard</h2 >
+        <mat-spinner style="top:40%;left:50%" *ngIf="!inProgress"></mat-spinner>
+        <div *ngIf="classif">
+            
+                
+                <button style="top:0;right:0;" class="update" mat-button (click)="updateClass()" >Update</button>
+
+    <mat-card class="example-card" *ngFor="let class of classif">
+        <mat-card-header>
+          
+          <mat-card-title>{{class.label }}</mat-card-title>
+          
+        </mat-card-header>
+        <img mat-card-image style="height: 50%;" src= "{{class.image}}" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+              Prob : {{class.prob |number}} %
+          </p>
+          <mat-progress-bar  mode="determinate" value="{{class.prob }}"></mat-progress-bar>
+        </mat-card-content>
+        <mat-card-actions>
+          <button  style="float: left;" (click)="upgradeResolution(class.image)" mat-button >Upgrade resolution</button>
+          <button style="float: right;" mat-button >Delete</button>
+        
+        </mat-card-actions>
+      </mat-card>
+      
+    </div>
+    
+</div>
+<div class="sub_div">
+    <div  style="display: inline-block;position:relative;margin-left: 30px;padding-left: 10px;padding-right : 10px;border-radius: 15px;"  *ngFor="let classe of classes" id="{{classe.id}}">
+        <button   class="delete" mat-button (click)="deleteClass(classe.name)" ><mat-icon class="delete-icon">delete</mat-icon></button>
+        <img src="assets/folder-7-64.png" (click)="getClassif(classe.name,classe.id)">
+        <p style=" text-align: center;">{{ classe.name }} </p>
+    </div>
+    <div class="example-button-container">
                         
-                    <button mat-fab color="warn" aria-label="Create new project" (click)="openDialog()">
-                      <mat-icon>add</mat-icon>
-                    </button>
-                  </div>
-            </mat-card-content>
-        </mat-card> 
-       
-    </mat-grid-tile>
-</mat-grid-list>
+        <button mat-fab color="warn" aria-label="Create new project" (click)="openDialog()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+</div>

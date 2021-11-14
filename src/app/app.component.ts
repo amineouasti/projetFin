@@ -13,5 +13,6 @@ export class AppComponent {
   loggedout = this.jwtHelper.isTokenExpired(this.token);
   logout():void{
     sessionStorage.removeItem('token');
+    window.location.reload();
   }
 }

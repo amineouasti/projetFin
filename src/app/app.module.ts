@@ -23,11 +23,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ClassficationDialogComponent } from './component/classification-dialog/classfication-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {
   JwtHelperService,
   JWT_OPTIONS
 } from '@auth0/angular-jwt';
-
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -52,9 +54,12 @@ import {
     MatInputModule,
     MatCardModule,
     MatFormFieldModule,
+    MatListModule,
     FormsModule, 
     ReactiveFormsModule,MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   providers: [
     {

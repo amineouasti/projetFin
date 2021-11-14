@@ -10,7 +10,7 @@
                         <input matInput [(ngModel)]="nameClass" placeholder="Name" value="">
                       </mat-form-field>
                 </div>
-                <div class="item-content">
+                <div class="item-content" *ngIf="uploadDisplay">
                   
                     <div class="image-upload" style="height: auto;" > <label style="cursor: pointer;" for="file_upload"> <img src="assets/cloud.png" alt="" class="uploaded-image">
                             <div class="h-100">
@@ -24,13 +24,17 @@
                         <!--upload-content--> <input data-required="image" type="file" name="image_name" id="file_upload" class="image-input" data-traget-resolution="image_resolution" value=""(change)="changeF($event)" multiple>
                         </label> </div> 
                 </div>
-                <!--item-content-->
-                <div>
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Categories</mat-label>
-                        <input matInput data-role="tagsinput" placeholder="Categories" value="">
-                      </mat-form-field>
+                <div *ngIf="!uploadDisplay">
+                    <mat-list>
+                        <mat-list-item  *ngFor="let file of files"> 
+                          <mat-icon matListIcon>image</mat-icon>
+                          <h3 matLine> {{file.name}} </h3><mat-icon matListIcon>delete</mat-icon>
+                          
+                        </mat-list-item>
+                      </mat-list>
                 </div>
+                <!--item-content-->
+                
             </div>
             <!--item-inner-->
        

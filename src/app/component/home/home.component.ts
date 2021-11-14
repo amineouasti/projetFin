@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   }
  checkToken():any{
   if(sessionStorage.getItem('token')){
+   
     this.token = sessionStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(this.token);
   }

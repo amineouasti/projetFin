@@ -13,8 +13,9 @@ export interface DialogData {
 
 export class ClassficationDialogComponent implements OnInit {
   nameClass : string='';
-  files:string [] = [];
+  files:any [] = [];
   formData = new FormData();
+  uploadDisplay:boolean=true;
   constructor(public dialogRef: MatDialogRef<ClassficationDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData, private api:DashboardService) { }
 
@@ -25,11 +26,13 @@ export class ClassficationDialogComponent implements OnInit {
   }
   createClasse():void{
     let user_id:any = sessionStorage.getItem("id");
-    const formData = new FormData();
+   
  
     for (var i = 0; i < this.files.length; i++) { 
-      formData.append("files[]", this.files[i]);
+      
+      this.formData.append("files", this.files[i]);
     }
+    
     this.formData.append("nameClass",this.nameClass);
     this.formData.append("id_user",user_id);
     console.log(this.formData.get("nameClass"))
@@ -41,9 +44,11 @@ export class ClassficationDialogComponent implements OnInit {
   changeF(event:any){
     for (var i = 0; i < event.target.files.length; i++) { 
       this.files.push(event.target.files[i]);
+      console.log(this.files[i].name)
   }
+  
     if(this.files){
-      // console.log(this.files)
+      this.uploadDisplay=false;
     }
   }
 
